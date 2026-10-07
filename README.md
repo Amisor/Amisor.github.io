@@ -1,40 +1,32 @@
 # Amisor.github.io
 
-Personal academic website of Ivana Sánchez Olivares, served by GitHub Pages at <https://amisor.github.io/>.
+This is the source of my personal website, **<https://amisor.github.io>**.
 
-Plain HTML/CSS with a few lines of JavaScript for the light/dark toggle. There is no build step: whatever is in the repo is what gets published.
+I'm Ivana Sánchez Olivares, a bioinformatician with a background in applied mathematics and data science. On the site you'll find my career path, my publication, and a selection of projects, each linked to its code or write-up.
 
-## Files
+## How it's built
+
+I kept it simple: plain HTML and CSS, with a few lines of JavaScript for the light/dark mode toggle. There's no build step. GitHub Pages serves the files in this repo exactly as they are.
 
 ```
-index.html            All page content (profile + about, career timeline, publications, projects, footer)
-assets/css/style.css  Styles; colours for light and dark mode are the variables at the top
-assets/js/theme.js    Light/dark toggle (follows the device setting until the visitor clicks)
-assets/img/profile.jpg  Your photo (square crop, 600x600px)
-assets/img/favicon.svg  Browser-tab icon (placeholder)
-assets/img/logos/     Organisation logos shown on the career timeline
-assets/CV.pdf         The CV linked from the footer
-.nojekyll             Tells GitHub Pages to serve files as-is
-.gitignore            Keeps the original (unoptimized) files in the repo root out of git
+index.html            All page content: profile, about me, publications, career timeline, projects
+assets/css/style.css  Styles; the light and dark colour palettes are the variables at the top
+assets/js/theme.js    Light/dark toggle (follows the device setting until a visitor chooses)
+assets/img/           Profile photo, favicon, and the organisation logos used in the timeline
+assets/CV.pdf         My CV, linked from the footer
+.nojekyll             Tells GitHub Pages to serve the files as-is
 ```
 
-## Editing content
+## Updating the site
 
-Everything lives in `index.html`, in the same order as on the page:
+Everything is in `index.html`, in the same order as on the page.
 
-- The top of the page is two columns (`<div class="intro">`): on the left, `<section class="profile">` holds your photo, name, links, About Me (with the skills list), and Publications; on the right, `<div class="career">` holds the career timeline. On screens narrower than 860px they stack.
-- Below that, `<section id="projects">` holds the project cards at full width.
+- **Career timeline:** each entry is an `<li class="tl-item …">` inside `<ol class="timeline">`, newest first. The class sets the label colour: `tl-work` (turquoise), `tl-edu` (yellow), or `tl-volunteer` (blue). Logos live in `assets/img/logos/`.
+- **Projects:** each card is an `<article class="card">` with a drawing, a title, the question it answers, a **Methods** row, a **Tools** row, a date line (`Institution · City, Country · Year`), and a link.
+- **CV:** I replace `assets/CV.pdf` and keep the same file name so the download button keeps working.
+- **Colours:** the variables at the top of `style.css` (`:root` for light mode; the two dark-mode blocks should stay identical).
 
-- **Career timeline entry:** each item is an `<li class="tl-item …">` inside `<ol class="timeline">`, newest first. Copy one and change the badge, dates, title, organisation, and bullets. The class sets the dot colour: `tl-work`, `tl-edu`, or `tl-volunteer`.
-- **Photo:** replace `assets/img/profile.jpg` with any square image.
-- **Timeline logos:** each entry starts with `<img class="tl-logo" src="assets/img/logos/…">`. Put the file in `assets/img/logos/`; square images on a white or transparent background work best.
-- **Project card:** copy an existing `<article class="card">` block. Each card has an illustration (`<figure class="thumb">`), a title, one line stating the question, a **Methods** row (models and analyses in plain words, with the tool name in parentheses when it helps) and a **Tools** row (languages and libraries), a date line in the format `Institution · City, Country · Year`, and a link. To use a real figure instead of the drawn illustration, replace the `<svg>…</svg>` inside the `<figure>` with `<img src="assets/img/your-figure.png" alt="Short description">` and remove `aria-hidden="true"` from the `<figure>`.
-- **Replace a TODO:** search the repo for `TODO`. Visible placeholders look like `<span class="todo">TODO: GitHub link</span>`; replace the whole span, e.g. with `<a href="https://github.com/Amisor/repo-name">GitHub</a>`.
-- **Update the CV:** overwrite `assets/CV.pdf` (keep the same name so the link keeps working).
-- **Colours:** change the variables at the top of `style.css` (`:root` for light mode, the two dark blocks for dark mode; keep the two dark blocks identical).
-- **Search/social previews:** the `<title>`, `description`, and `og:` tags are at the top of `index.html`.
-
-## Preview locally
+## Previewing locally
 
 From the repo folder:
 
@@ -42,10 +34,16 @@ From the repo folder:
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000>. Refresh the browser after each edit. Stop the server with `Ctrl+C`.
-
-(Opening `index.html` directly also works, but a local server matches GitHub Pages more closely.)
+Then I open <http://localhost:8000> and refresh after each edit.
 
 ## Publishing
 
-Commit and push to the branch GitHub Pages is set to publish (Settings → Pages). The site updates within a minute or two.
+GitHub Pages publishes the `main` branch, so pushing is all it takes:
+
+```sh
+git add .
+git commit -m "Describe the change"
+git push
+```
+
+The live site updates within a minute or two.
