@@ -283,3 +283,7 @@ footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border
 .thumb .open { fill: var(--surface); stroke: var(--c1); stroke-width: 3; }
 .thumb .hap text { fill: var(--muted); font: 700 12px system-ui, sans-serif; }
 .repo-link svg .cut { fill: none; stroke: var(--surface); stroke-width: 1.6; stroke-linecap: round; }
+.thumb .band { fill: var(--c1); opacity: .18; }
+.thumb .q { fill: none; stroke: var(--c1); stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; }
+.thumb .q50 { fill: none; stroke: var(--c1); stroke-width: 4; stroke-linecap: round; }
+.thumb-i .c3 { opacity: .7; }
