@@ -7,3 +7,10 @@
 
 # macOS
 .DS_Store
+
+# Personal documents kept locally (job applications, CVs, papers).
+# The site's CV lives at assets/CV.pdf, which these root-only patterns don't touch.
+/*.pdf
+/*.docx
+/*.doc
+/~$*
