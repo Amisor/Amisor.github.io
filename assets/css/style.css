@@ -220,13 +220,13 @@ h2::before { content: ""; display: inline-block; width: .55rem; height: .55rem; 
 
 /* ---------- Footer ---------- */
 footer { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
-.cv-button {
+.contact-button {
   display: inline-block; margin-bottom: 1rem;
   padding: .6rem 1.2rem; border-radius: 999px;
   background: var(--brand); color: #fff;
   font-weight: 600; text-decoration: none;
 }
-.cv-button:hover { filter: brightness(1.12); }
+.contact-button:hover { filter: brightness(1.12); }
 
 /* ---------- Narrow screens: stack the intro ---------- */
 @media (max-width: 860px) {
